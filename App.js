@@ -1,14 +1,31 @@
 // 1. Import section - We import React from the node_modules and the components form react-native
 import React from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, TextInput, Button} from 'react-native';
 
 // 2. Create App with render function. (to display on the screen)
 class App extends React.Component {
+  state = {
+    userInput : "",
+    todo: ""
+  }
+  addTodo = () => {
+    this.setState({todo: this.state.userInput})
+  }
   render() {
     // Return in argument.. weird
     return (
       <View style={Styles.container}>
-      <Text style={Styles.textStyle}>Hello World</Text>
+        <Text>Hello World, this a great app</Text>
+        <TextInput
+          style={Styles.inputStyle}
+          onChangeText={(text) => this.setState({ userInput: text })}
+        />
+        <Button
+          title='Add todo'
+          color='green'
+          onPress={this.addTodo}
+        />
+        <Text>{this.state.todo}</Text>
       </View>
     )
   }
@@ -25,11 +42,11 @@ const Styles =  {
     alignItems: 'center', 
     justifyContent:'center'
   },
-  textStyle: {
-    flex: 0.5,
-    alignItems: 'center',
-    justifyContent:'center',
-    borderWidth: 2,
-    borderColor : 'green'
+  inputStyle: {
+    height: 40,
+    width : 200,
+    borderWidth: 1,
+    borderColor: 'green',
+    paddingHorizontal: 8
   }
 }
