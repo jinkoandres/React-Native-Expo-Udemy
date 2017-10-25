@@ -16,10 +16,10 @@ class App extends React.Component {
     return (
       <View style={Styles.container}>
         <Text>Hello World, this a great app</Text>
-        <TextInput
-          style={Styles.inputStyle}
-          onChangeText={(text) => this.setState({ userInput: text })}
-        />
+        
+          <TextInput style={Styles.input}
+            onChangeText={(text) => this.setState({ userInput: text })}
+          />
         <Button
           title='Add todo'
           color='green'
@@ -42,11 +42,11 @@ const Styles = {
     alignItems: 'center',
     justifyContent: 'center'
   },
-  inputStyle: {
-    height: 40,
-    width: 200,
+  input: {
+    height: 44,
+    alignSelf: 'stretch',
     borderWidth: 1,
-    borderColor: 'green',
+    borderColor: 'gray',
     paddingHorizontal: 8
   }
 }
